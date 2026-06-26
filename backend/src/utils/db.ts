@@ -30,3 +30,7 @@ export const query = (sql: string): DbResult[] => {
 export const execute = (sql: string): void => {
     query(sql);
 };
+
+export const escape = (str: string): string => {
+    return str.replace(/'/g, "''");
+};
