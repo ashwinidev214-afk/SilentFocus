@@ -1,1 +1,6 @@
-import React from 'react';\nimport ScreenPlaceholder from '../../components/ScreenPlaceholder';\n\nconst OTPScreen = () => <ScreenPlaceholder title='OTPScreen' />;\n\nexport default OTPScreen;
+import React from 'react';
+import ScreenPlaceholder from '../../components/ScreenPlaceholder';
+
+const OTPScreen = () => <ScreenPlaceholder title='OTPScreen' />;
+
+export default OTPScreen;

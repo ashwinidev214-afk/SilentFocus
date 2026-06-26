@@ -1,1 +1,6 @@
-import React from 'react';\nimport ScreenPlaceholder from '../components/ScreenPlaceholder';\n\nconst RetreatDetailScreen = () => <ScreenPlaceholder title='RetreatDetailScreen' />;\n\nexport default RetreatDetailScreen;
+import React from 'react';
+import ScreenPlaceholder from '../components/ScreenPlaceholder';
+
+const RetreatDetailScreen = () => <ScreenPlaceholder title='RetreatDetailScreen' />;
+
+export default RetreatDetailScreen;

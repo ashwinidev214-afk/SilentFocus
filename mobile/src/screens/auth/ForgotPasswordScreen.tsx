@@ -1,1 +1,6 @@
-import React from 'react';\nimport ScreenPlaceholder from '../../components/ScreenPlaceholder';\n\nconst ForgotPasswordScreen = () => <ScreenPlaceholder title='ForgotPasswordScreen' />;\n\nexport default ForgotPasswordScreen;
+import React from 'react';
+import ScreenPlaceholder from '../../components/ScreenPlaceholder';
+
+const ForgotPasswordScreen = () => <ScreenPlaceholder title='ForgotPasswordScreen' />;
+
+export default ForgotPasswordScreen;

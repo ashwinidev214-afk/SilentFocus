@@ -1,1 +1,6 @@
-import React from 'react';\nimport ScreenPlaceholder from '../../components/ScreenPlaceholder';\n\nconst WelcomeScreen = () => <ScreenPlaceholder title='WelcomeScreen' />;\n\nexport default WelcomeScreen;
+import React from 'react';
+import ScreenPlaceholder from '../../components/ScreenPlaceholder';
+
+const WelcomeScreen = () => <ScreenPlaceholder title='WelcomeScreen' />;
+
+export default WelcomeScreen;

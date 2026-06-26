@@ -1,1 +1,6 @@
-import React from 'react';\nimport ScreenPlaceholder from '../../components/ScreenPlaceholder';\n\nconst HostBookingsScreen = () => <ScreenPlaceholder title='HostBookingsScreen' />;\n\nexport default HostBookingsScreen;
+import React from 'react';
+import ScreenPlaceholder from '../../components/ScreenPlaceholder';
+
+const HostBookingsScreen = () => <ScreenPlaceholder title='HostBookingsScreen' />;
+
+export default HostBookingsScreen;

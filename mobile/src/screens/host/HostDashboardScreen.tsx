@@ -1,1 +1,6 @@
-import React from 'react';\nimport ScreenPlaceholder from '../../components/ScreenPlaceholder';\n\nconst HostDashboardScreen = () => <ScreenPlaceholder title='HostDashboardScreen' />;\n\nexport default HostDashboardScreen;
+import React from 'react';
+import ScreenPlaceholder from '../../components/ScreenPlaceholder';
+
+const HostDashboardScreen = () => <ScreenPlaceholder title='HostDashboardScreen' />;
+
+export default HostDashboardScreen;
