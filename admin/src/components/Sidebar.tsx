@@ -26,6 +26,19 @@ const menuItems = [
   { name: 'Notifications', href: '/notifications', icon: <Bell size={20} /> },
   { name: 'CMS', href: '/cms', icon: <FileText size={20} /> },
   { name: 'Settings', href: '/settings', icon: <Settings size={20} /> },
+
+const menuItems = [
+  { name: 'Dashboard', href: '/dashboard' },
+  { name: 'Users', href: '/users' },
+  { name: 'Hosts', href: '/hosts' },
+  { name: 'Retreats', href: '/retreats' },
+  { name: 'Experiences', href: '/experiences' },
+  { name: 'Bookings', href: '/bookings' },
+  { name: 'Revenue', href: '/revenue' },
+  { name: 'Reviews', href: '/reviews' },
+  { name: 'Notifications', href: '/notifications' },
+  { name: 'CMS', href: '/cms' },
+  { name: 'Settings', href: '/settings' },
 ];
 
 export default function Sidebar() {
@@ -39,6 +52,12 @@ export default function Sidebar() {
       </div>
       <nav className="flex-1 p-4 overflow-y-auto">
         <ul className="space-y-1">
+    <aside className="w-64 bg-gray-800 text-white min-h-screen flex flex-col">
+      <div className="p-4 text-2xl font-bold border-b border-gray-700">
+        Silent Focus Admin
+      </div>
+      <nav className="flex-1 p-4">
+        <ul className="space-y-2">
           {menuItems.map((item) => (
             <li key={item.name}>
               <Link
@@ -47,6 +66,9 @@ export default function Sidebar() {
               >
                 {item.icon}
                 <span className="font-medium text-sm">{item.name}</span>
+                className="block p-2 hover:bg-gray-700 rounded transition-colors"
+              >
+                {item.name}
               </Link>
             </li>
           ))}
@@ -59,6 +81,9 @@ export default function Sidebar() {
         >
           <LogOut size={20} />
           <span className="font-medium text-sm">Logout</span>
+      <div className="p-4 border-t border-gray-700">
+        <Link href="/login" className="block p-2 hover:bg-gray-700 rounded transition-colors text-gray-400">
+          Logout
         </Link>
       </div>
     </aside>
