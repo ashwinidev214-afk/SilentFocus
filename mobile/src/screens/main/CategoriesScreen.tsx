@@ -1,0 +1,1 @@
+import React from 'react';\nimport ScreenPlaceholder from '../../components/ScreenPlaceholder';\n\nconst CategoriesScreen = () => <ScreenPlaceholder title='CategoriesScreen' />;\n\nexport default CategoriesScreen;

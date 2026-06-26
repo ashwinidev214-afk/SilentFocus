@@ -1,0 +1,1 @@
+import React from 'react';\nimport ScreenPlaceholder from '../components/ScreenPlaceholder';\n\nconst BookingScreen = () => <ScreenPlaceholder title='BookingScreen' />;\n\nexport default BookingScreen;

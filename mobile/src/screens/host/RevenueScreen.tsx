@@ -1,0 +1,1 @@
+import React from 'react';\nimport ScreenPlaceholder from '../../components/ScreenPlaceholder';\n\nconst RevenueScreen = () => <ScreenPlaceholder title='RevenueScreen' />;\n\nexport default RevenueScreen;
