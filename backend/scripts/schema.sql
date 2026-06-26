@@ -4,13 +4,37 @@
 CREATE TABLE IF NOT EXISTS users (
     id TEXT PRIMARY KEY,
     email TEXT UNIQUE NOT NULL,
-    password_hash TEXT NOT NULL,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     role TEXT NOT NULL DEFAULT 'user', -- user, host, admin
     profile_picture TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- User Authentication (Supports Multiple Providers: email, google, apple)
+CREATE TABLE IF NOT EXISTS user_auth (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL,
+    provider TEXT NOT NULL, -- email, google, apple
+    provider_id TEXT NOT NULL, -- email or social provider ID
+    password_hash TEXT, -- only for email provider
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(provider, provider_id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- OTP Verifications
+CREATE TABLE IF NOT EXISTS otp_verifications (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL,
+    type TEXT NOT NULL, -- email_verification, password_reset, login_otp
+    code TEXT NOT NULL,
+    expires_at DATETIME NOT NULL,
+    used_at DATETIME,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 -- Host Profiles
