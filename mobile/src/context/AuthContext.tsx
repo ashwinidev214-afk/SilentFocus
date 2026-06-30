@@ -5,6 +5,8 @@ import api from '../services/api';
 interface User {
   id: string;
   email: string;
+  first_name: string;
+  last_name: string;
   name?: string;
   onboarded: boolean;
 }
