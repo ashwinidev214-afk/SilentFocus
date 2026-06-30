@@ -97,7 +97,19 @@ router.get('/:id', async (req: Request, res: Response) => {
       ORDER BY r.created_at DESC
     `);
 
-    res.json({ ...listing, reviews });
+    // Calculate availability
+    const confirmedBookings = query(`
+      SELECT COUNT(*) as count FROM bookings 
+      WHERE listing_id = '${escape(id)}' AND status IN ('confirmed', 'completed')
+    `);
+    const bookedCount = confirmedBookings[0]?.count || 0;
+    const availability = {
+      capacity: listing.capacity,
+      booked: bookedCount,
+      remaining: Math.max(0, listing.capacity - bookedCount)
+    };
+
+    res.json({ ...listing, reviews, availability });
   } catch (error) {
     console.error('Error fetching listing details:', error);
     res.status(500).json({ error: 'Internal server error' });
@@ -205,24 +217,6 @@ router.delete('/:id', authenticateJWT, async (req: AuthRequest, res: Response) =
     res.json({ message: 'Listing archived successfully' });
   } catch (error) {
     console.error('Error deleting listing:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-// GET /api/hosts/:id/listings - Get all listings for a specific host
-router.get('/host/:id', async (req: Request, res: Response) => {
-  const id = String(req.params.id);
-
-  try {
-    const listings = query(`
-      SELECT l.*, c.name as category_name
-      FROM listings l
-      JOIN categories c ON l.category_id = c.id
-      WHERE l.host_id = '${escape(id)}' AND l.status != 'archived'
-    `);
-    res.json(listings);
-  } catch (error) {
-    console.error('Error fetching host listings:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
